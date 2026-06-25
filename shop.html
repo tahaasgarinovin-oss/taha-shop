@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<title>NovaStore Shop</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 class="logo">🛒 NovaStore</h2>
+<p class="subtitle">خوش اومدی به فروشگاه</p>
+
+<!-- دسته بندی ها -->
+<div class="categories">
+
+<button onclick="filter('all')">همه</button>
+<button onclick="filter('mobile')">موبایل</button>
+<button onclick="filter('laptop')">لپتاپ</button>
+<button onclick="filter('tablet')">تبلت</button>
+<button onclick="filter('accessory')">لوازم جانبی</button>
+
+</div>
+
+<!-- محصولات -->
+<div id="products">
+
+<div class="item mobile">📱 گوشی سامسونگ</div>
+<div class="item mobile">📱 آیفون 15</div>
+
+<div class="item laptop">💻 لپتاپ ASUS</div>
+<div class="item laptop">💻 MacBook</div>
+
+<div class="item tablet">📟 iPad</div>
+
+<div class="item accessory">🔌 شارژر سریع</div>
+<div class="item accessory">📱 قاب گوشی</div>
+
+</div>
+
+<button class="login-btn" onclick="logout()">خروج</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
