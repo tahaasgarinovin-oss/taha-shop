@@ -12,15 +12,15 @@ function register(event){
 function login(event){
     event.preventDefault();
 
-    let u = document.getElementById("loginUser").value;
-    let p = document.getElementById("loginPass").value;
+    let u = document.getElementById("username").value;
+    let p = document.getElementById("password").value;
 
-    let savedPass = localStorage.getItem(u);
+    let saved = localStorage.getItem(u);
 
-    if(savedPass === p){
-        window.location.href = "dashboard.html";
+    if(saved === p){
+        window.location.href = "shop.html";
     } else {
-        document.getElementById("msg").textContent = "اشتباهه!";
+        document.getElementById("msg").textContent = "نام کاربری یا رمز اشتباه است!";
     }
 }
 
@@ -28,10 +28,10 @@ function forgot(event){
     event.preventDefault();
 
     let u = document.getElementById("forgotUser").value;
-    let newPass = document.getElementById("newPass").value;
+    let p = document.getElementById("newPass").value;
 
     if(localStorage.getItem(u)){
-        localStorage.setItem(u, newPass);
+        localStorage.setItem(u,p);
         document.getElementById("msg").textContent = "رمز تغییر کرد!";
     } else {
         document.getElementById("msg").textContent = "کاربر پیدا نشد!";
@@ -39,5 +39,17 @@ function forgot(event){
 }
 
 function logout(){
-    window.location.href = "login.html";
+    window.location.href = "index.html";
+}
+
+function filter(type){
+    let items = document.querySelectorAll(".item");
+
+    items.forEach(i => {
+        if(type === "all" || i.classList.contains(type)){
+            i.style.display = "block";
+        } else {
+            i.style.display = "none";
+        }
+    });
 }
