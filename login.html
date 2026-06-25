@@ -1,35 +1,145 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
 <meta charset="UTF-8">
-<title>ورود</title>
-<link rel="stylesheet" href="style.css">
+<title>Login Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Vazirmatn;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    overflow:hidden;
+}
+
+.container{
+    width:900px;
+    height:500px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border-radius:20px;
+    display:flex;
+    box-shadow:0 0 40px rgba(0,0,0,0.5);
+}
+
+/* سمت چپ فرم */
+.form-box{
+    width:50%;
+    padding:50px;
+    color:white;
+}
+
+.form-box h2{
+    margin-bottom:30px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#00c6ff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0072ff;
+}
+
+/* سمت راست */
+.side{
+    width:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* کاراکتر دختر */
+.girl{
+    width:250px;
+    animation:float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.3));
+}
+
+@keyframes float{
+    0%{transform:translateY(0px)}
+    50%{transform:translateY(-20px)}
+    100%{transform:translateY(0px)}
+}
+
+/* باکس نام و رمز کنار دختر */
+.hint{
+    position:absolute;
+    bottom:40px;
+    color:white;
+    text-align:center;
+    font-size:14px;
+    opacity:0.8;
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-<h2 class="logo">ورود</h2>
+    <div class="form-box">
+        <h2>ورود به سیستم</h2>
 
-<form onsubmit="login(event)">
+        <input type="text" placeholder="نام کاربری">
+        <input type="password" placeholder="رمز عبور">
 
-<input id="loginUser" placeholder="نام کاربری">
-<input id="loginPass" type="password" placeholder="رمز">
+        <button onclick="login()">ورود</button>
+    </div>
 
-<button class="login-btn">ورود</button>
+    <div class="side">
+        <img class="girl" src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
 
-<p id="msg"></p>
+        <div class="hint">
+            به سیستم خوش آمدی ✨
+        </div>
+    </div>
 
-</form>
-
-<div class="links">
-<a href="register.html">ثبت نام</a>
-<a href="forgot.html">فراموشی رمز</a>
 </div>
 
-</div>
+<script>
+function login(){
+    const user = document.querySelectorAll("input")[0].value;
+    const pass = document.querySelectorAll("input")[1].value;
 
-<script src="script.js"></script>
+    if(user && pass){
+        alert("ورود موفق شد 🚀");
+        // اینجا می‌تونی ببری به صفحه اصلی
+        // window.location.href = "home.html";
+    } else {
+        alert("فیلدها خالی هستند!");
+    }
+}
+</script>
+
 </body>
 </html>
